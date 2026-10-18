@@ -1,0 +1,69 @@
+/* ============================================================
+   小红书经验贴图文 · 设计系统 base.css
+   尺寸基准: 1080 x 1440 CSS px (3:4), 渲染时 device-scale=2
+   字体: Noto Sans CJK SC (系统已装)
+   配色: 知识干货类 —— 深蓝主色 + 砖红强调 + 米白底
+   ============================================================ */
+:root{
+  --navy:#16324F;        /* 主深蓝：标题/深底 */
+  --navy-2:#1F4E79;      /* 次深蓝 */
+  --red:#C0392B;         /* 砖红：标签/关键词强调 */
+  --red-soft:#F5E3E0;    /* 浅红底 */
+  --cream:#FAF7F1;       /* 米白底 */
+  --ink:#2B2B2B;         /* 正文深灰 */
+  --ink-2:#555555;       /* 次要文字 */
+  --line:#E3DCD0;        /* 分隔线 */
+  --gold:#C89B3C;        /* 少量点缀 */
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1080px;height:1440px;}
+body{
+  font-family:"Noto Sans CJK SC","Noto Sans SC",sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow:hidden;
+}
+
+/* ---------- 通用页容器 ---------- */
+.page{width:1080px;height:1440px;position:relative;overflow:hidden;}
+
+/* ---------- 内容页：米白底 ---------- */
+.content{background:var(--cream);padding:96px 88px 90px;display:flex;flex-direction:column;}
+.kicker{
+  display:inline-block;align-self:flex-start;
+  font-size:27px;font-weight:700;color:var(--red);
+  letter-spacing:2px;margin-bottom:26px;
+}
+.kicker::before{content:"";display:inline-block;width:38px;height:6px;background:var(--red);
+  vertical-align:middle;margin-right:16px;border-radius:2px;}
+h1.title{
+  font-size:62px;line-height:1.22;font-weight:900;color:var(--navy);
+  letter-spacing:1px;margin-bottom:18px;
+}
+.rule{width:100%;height:2px;background:var(--line);margin:30px 0 40px;}
+.lead{font-size:30px;line-height:1.6;color:var(--ink-2);margin-bottom:8px;}
+
+/* 要点行：左粗词 + 右说明 */
+.rows{display:flex;flex-direction:column;gap:0;}
+.row{display:flex;gap:36px;padding:26px 0;border-bottom:1px solid var(--line);}
+.row:last-child{border-bottom:none;}
+.row .k{
+  flex:0 0 250px;font-size:31px;font-weight:700;color:var(--navy);line-height:1.35;
+}
+.row .d{flex:1;font-size:29px;line-height:1.6;color:var(--ink);}
+.row .k.hl{color:var(--red);}
+
+/* 过来人提示框 */
+.callout{
+  margin-top:auto;background:#FFFFFF;border-left:8px solid var(--red);
+  padding:30px 34px;border-radius:0 14px 14px 0;
+}
+.callout .tag{font-size:26px;font-weight:700;color:var(--red);margin-bottom:10px;letter-spacing:1px;}
+.callout .txt{font-size:27px;line-height:1.65;color:var(--ink);}
+
+/* 页脚 */
+.footer{
+  position:absolute;left:88px;right:88px;bottom:38px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:22px;color:#9a9186;letter-spacing:1px;
+}
+.footer .brand{font-weight:700;color:var(--navy);}
